@@ -7,7 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(QT_cpp_test_app main.cpp
 
-    binarytree.h binarytree.cpp)
+    binarytree.h binarytree.cpp
+    .gitignore
+    README.md)
 
 include(GNUInstallDirs)
 install(TARGETS QT_cpp_test_app
