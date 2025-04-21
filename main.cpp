@@ -11,5 +11,10 @@ int main()
     tree.generateTestTree();
     tree.printTree();
 
+    cout << "\n\n";
+
+    tree.flattenTree();
+    tree.printTree();
+
     return 0;
 }

@@ -22,7 +22,7 @@ public:
 
     void generateTestTree();
     void printTree();
-    void printRecursive(Node* node, int depth);
+    void flattenTree();
 };
 
 #endif // BINARYTREE_H
