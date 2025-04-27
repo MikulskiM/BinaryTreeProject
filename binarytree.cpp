@@ -67,101 +67,41 @@ void BinaryTree::generateRandomTree(int numberOfNodes) {
 }
 
 void BinaryTree::printTree() {
-    if (root == nullptr) {
-        cout << "ERROR:\tcan't print tree - root is null pointer\n";
-        return;
+    vector<vector<int>> columns;
+    Node* currentTop = root;
+    Node* currentBottom = root;
+    int i = 0;  // columns iterator
+
+    while (currentTop != nullptr) {
+        columns.push_back(vector<int>());
+
+        while (currentBottom != nullptr) {
+            columns[i].push_back(currentBottom->value);
+            currentBottom = currentBottom->down;
+        }
+
+        currentTop = currentTop->right;
+        currentBottom = currentTop;
+        i++;
     }
 
-    Node* temp = root;
-
-    // level 1
-    while (temp != nullptr) {
-        cout << temp->value;
-        if (temp->right) {
-            cout << " - ";
+    int maxDepth = 0;
+    for (auto& column : columns) {
+        if (column.size() > maxDepth) {
+            maxDepth = column.size();
         }
-        temp = temp->right;
     }
 
-    // level 2
-    cout << "\n";
-    temp = root;
-    while (temp != nullptr) {
-        if (temp->down) {
-            cout << "|   ";
+    for (int j = 0; j<maxDepth; j++) {
+        for (auto& column : columns) {
+            if (j < column.size()) {
+                cout << column[j] << "   ";
+            } else {
+                cout << "    ";
+            }
         }
-        else {
-            cout << "    ";
-        }
-        temp = temp->right;
+        cout << "\n";
     }
-
-    cout << "\n";
-    temp = root;
-    while (temp != nullptr) {
-        if (temp->down) {
-            cout << temp->down->value;
-        }
-        else {
-            cout << " ";
-        }
-        cout << "   ";
-        temp = temp->right;
-    }
-
-    // level 3
-    cout << "\n";
-    temp = root;
-    while (temp != nullptr) {
-        if (temp->down && temp->down->down) {
-            cout << "|   ";
-        }
-        else {
-            cout << "    ";
-        }
-        temp = temp->right;
-    }
-
-    cout << "\n";
-    temp = root;
-    while (temp != nullptr) {
-        if (temp->down && temp->down->down) {
-            cout << temp->down->down->value;
-        }
-        else {
-            cout << " ";
-        }
-        cout << "   ";
-        temp = temp->right;
-    }
-
-    // level 4
-    cout << "\n";
-    temp = root;
-    while (temp != nullptr) {
-        if (temp->down && temp->down->down && temp->down->down->down) {
-            cout << "|   ";
-        }
-        else {
-            cout << "    ";
-        }
-        temp = temp->right;
-    }
-
-    cout << "\n";
-    temp = root;
-    while (temp != nullptr) {
-        if (temp->down && temp->down->down && temp->down->down->down) {
-            cout << temp->down->down->down->value;
-        }
-        else {
-            cout << " ";
-        }
-        cout << "   ";
-        temp = temp->right;
-    }
-
-    cout << "\n";
 }
 
 void BinaryTree::flattenTree() {
