@@ -28,6 +28,9 @@ public:
 
     void printTree();
     void flattenTree();
+
+    bool found(int number);
+    void countNumbers();
 };
 
 #endif // BINARYTREE_H

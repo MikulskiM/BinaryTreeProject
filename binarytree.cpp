@@ -127,3 +127,27 @@ void BinaryTree::flattenTree() {
         current = right;
     }
 }
+
+bool BinaryTree::found(int number) {
+    Node* currentTop = root;
+    Node* currentBottom = root;
+
+    while (currentTop != nullptr) {
+        while (currentBottom != nullptr) {
+            if (number == currentBottom->value) {
+                cout << "Found the " << number;
+                return true;
+            }
+            currentBottom = currentBottom->down;
+        }
+        currentTop = currentTop->right;
+        currentBottom = currentTop;
+    }
+
+    cout << "Didn't find the " << number;
+    return false;
+}
+
+void BinaryTree::countNumbers() {
+    // TODO:
+}

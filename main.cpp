@@ -17,5 +17,9 @@ int main()
     tree.flattenTree();
     tree.printTree();
 
+    cout << "\n\n";
+
+    tree.found(6);
+
     return 0;
 }
