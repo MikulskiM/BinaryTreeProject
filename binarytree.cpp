@@ -1,8 +1,8 @@
 #include "binarytree.h"
 
-BinaryTree::BinaryTree() : root(nullptr) {}
-
 void BinaryTree::generateTestTree() {
+    cout << "generating " << name << "\n";
+
     root = new Node(1);
     Node* n2 = new Node(2);
     Node* n3 = new Node(3);
@@ -37,6 +37,8 @@ void BinaryTree::generateTestTree() {
 }
 
 void BinaryTree::generateRandomTree(int numberOfNodes) {
+    cout << "generating " << name << "\n";
+
     random_device randDevice;
     mt19937 gen(randDevice());
     uniform_int_distribution distrib(0, 9);
@@ -105,6 +107,8 @@ void BinaryTree::printTree() {
 }
 
 void BinaryTree::flattenTree() {
+    cout << "flattening " << name << "\n";
+
     Node* current = root;
 
     if (root == nullptr) {

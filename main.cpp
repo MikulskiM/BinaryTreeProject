@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    BinaryTree tree;
+    BinaryTree tree("tree1");
 
     // tree.generateTestTree();
     tree.generateRandomTree(10);

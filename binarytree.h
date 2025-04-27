@@ -18,9 +18,10 @@ private:
     };
 
     Node* root;
+    string name;
 
 public:
-    BinaryTree();
+    BinaryTree(string treeName) : name(treeName) {}
 
     void generateTestTree();
     void generateRandomTree(int numberOfNodes);
