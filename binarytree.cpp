@@ -1,7 +1,5 @@
 #include "binarytree.h"
 
-#include <vector>
-
 BinaryTree::BinaryTree() : root(nullptr) {}
 
 void BinaryTree::generateTestTree() {
@@ -36,6 +34,36 @@ void BinaryTree::generateTestTree() {
     // level 4
     Node* n13 = new Node(8);
     n11->down = n13;
+}
+
+void BinaryTree::generateRandomTree(int numberOfNodes) {
+    random_device randDevice;
+    mt19937 gen(randDevice());
+    uniform_int_distribution distrib(0, 9);
+
+    vector<Node*> nodes;
+
+    for (int i = 0; i < numberOfNodes; i++) {
+        nodes.push_back(new Node(distrib(gen)));
+    }
+    root = nodes.front();
+
+    Node* currentTop = root;
+    Node* currentBottom = root;
+
+    for (int i = 1; i<nodes.size(); i++) {
+        if (distrib(gen) > 4) {
+            // down
+            currentBottom->down = nodes[i];
+            currentBottom = nodes[i];
+        }
+        else {
+            // right
+            currentTop->right = nodes[i];
+            currentTop = nodes[i];
+            currentBottom = nodes[i];
+        }
+    }
 }
 
 void BinaryTree::printTree() {

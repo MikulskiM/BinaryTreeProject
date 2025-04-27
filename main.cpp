@@ -8,7 +8,8 @@ int main()
 {
     BinaryTree tree;
 
-    tree.generateTestTree();
+    // tree.generateTestTree();
+    tree.generateRandomTree(10);
     tree.printTree();
 
     cout << "\n\n";

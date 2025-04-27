@@ -2,6 +2,8 @@
 #define BINARYTREE_H
 
 #include <iostream>
+#include <vector>
+#include <random>
 
 using namespace std;
 
@@ -21,6 +23,8 @@ public:
     BinaryTree();
 
     void generateTestTree();
+    void generateRandomTree(int numberOfNodes);
+
     void printTree();
     void flattenTree();
 };
