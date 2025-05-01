@@ -13,13 +13,14 @@ int main()
     tree.printTree();
 
     cout << "\n\n";
-
     tree.flattenTree();
     tree.printTree();
 
     cout << "\n\n";
-
     tree.found(6);
+
+    cout << "\n\n";
+    tree.countNumbers();
 
     return 0;
 }

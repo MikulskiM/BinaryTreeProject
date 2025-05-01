@@ -149,5 +149,25 @@ bool BinaryTree::found(int number) {
 }
 
 void BinaryTree::countNumbers() {
-    // TODO:
+    /*
+     *  result should look like this:
+     *  4[3], 2[1], 6[1], 7[4], 9[2]
+     *  value[number of ocurances]
+     */
+    map<int, int> numbers;
+    Node* currentTop = root;
+    Node* currentBottom = root;
+
+    while (currentTop != nullptr) {
+        while (currentBottom != nullptr) {
+            numbers[currentBottom->value]++;
+            currentBottom = currentBottom->down;
+        }
+        currentTop = currentTop->right;
+        currentBottom = currentTop;
+    }
+
+    for (auto& pair : numbers) {
+        cout << pair.first << "[" << pair.second << "]\t";
+    }
 }
